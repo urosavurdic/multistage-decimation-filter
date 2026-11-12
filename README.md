@@ -7,7 +7,7 @@ keeping the cheapest design that stays inside the passband deviation budget.
 ## The idea
 
 Decimating by 32 in a single step needs a long, expensive filter. Doing it as a
-cascade — one stage per prime factor — is much cheaper, because each stage runs
+cascade with one stage per prime factor is much cheaper, because each stage runs
 at a lower sample rate than the one before it. Two choices then drive the cost:
 
 1. **The order the factors are applied in.** Decimating early means later
@@ -19,8 +19,8 @@ The search evaluates the operation count `A = K₁·R + Σ|Kₘ − Kₘ₊₁|�
 for each candidate, sorts cheapest-first, and stops scanning as soon as the
 cost exceeds the best design already found.
 
-The frequency check only evaluates the bands that actually fold into the
-passband under decimation — the response is unconstrained everywhere else, so
+The frequency check only evaluates the bands that fold into the
+passband under decimation. The response is unconstrained everywhere else, so
 checking a uniform grid would waste most of the work.
 
 For R = 32 every prime factor is 2, so there is exactly one ordering; the
@@ -43,4 +43,4 @@ Coursework project with **Maja**, for Signal Processing 2.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
